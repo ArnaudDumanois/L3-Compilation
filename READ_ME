@@ -1,0 +1,30 @@
+Comment compiler notre projet STRUCIT :
+
+1) Compiler la partie frontend :
+	. se rendre dans le dossier frontend du projet avec la commande cd ./frontend
+	. lancer la commande make
+	
+	Pour tester les fichiers, lancer la commande : ./analyseurfe < ../Tests/fichier.c
+	en remplacant fichier.c par le fichier test souhaité. 
+	
+	
+2) Compiler et tester la partie backend
+	. se rendre dans le dossier backend du projet avec la commande cd ./backend
+	. lancer la commande make
+	
+	Pour tester le fichier renvoyé par le frontend, lancer la commande : ./analyseurbe < ../frontend/out.c
+	
+	
+Le fichier généré dans le frontend s'appelera toujours out.c.
+Pour lancer le backend sur un autre fichier test, il faut alors repasser par l'étape de test des fichiers du frontend, pour générer le fichier correspondant. 	
+	
+	
+	
+Eventuels problèmes - Réussites : 
+	- du code est généré à chaque test avec un fichier.c
+	- le parseur du backend ne renvoit pas d'erreur dans la majorité des cas. Pour les tests fournis avec le sujet, seulement 2 renvoit
+ 	  des erreurs de syntaxe, dû aux pointeurs sur fonctions.
+ 	- toutes les variables d'un fichier sont déclarés dans une unique table de symbole : il y a donc parfois des messages de warning 
+ 	  qui s'affichent dans le terminal de type "Variable "i" a la ligne 4 déja déclaré.", car la variable i est défini dans 2 fonctions
+ 	  différentes mais notre compilateur ne fait pas la différence. Le code est quand même généré sans soucis. 
+ 	- dans l'ensemble, le format 3 adresses est respecté.
